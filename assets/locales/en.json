@@ -1,0 +1,51 @@
+{
+  "app": {
+    "name": "Cloud For NinjaERP Business Intelligence"
+  },
+  "nav": {
+    "dash": {
+      "main": "Dashboard",
+      "ofmenu": "Purchase Requisition",
+      "ccmenu": "Cost Control",
+      "pomenu": "Purchase Order",
+      "womenu": "Work Order",
+      "apmenu": "Account Payable",
+      "armenu": "Account Receivable",
+      "icmenu": "Inventory Management",
+      "glmenu": "General Ledger",
+      "msmenu": "Master Configuration",
+      "famenu": "Asset Registration",
+      "pmmenu": "Project Management",
+      "pprogress": "Project Progress",
+      "fnmenu": "Financial Management",
+      "pcmenu": "PettyCash Management",
+      "scmenu": "Subcontractor Management"
+    },
+    "dash_cc": {
+      "overview": "Overview Cost Control",
+      "boq": "BOQ",
+      "tender": "Tender",
+      "apprbudget": "Approve Budget",
+      "archtender": "Archive Tender",
+      "revbudget": "Revise Budget",
+      "apprrevise": "Approve Revise"
+    }
+  },
+  "ic_module": {
+    "dash": {
+      "poreceive": "PO Receive",
+      "icrecieve": "IC Receive",
+      "booking": "Booking",
+      "issue": "Issue",
+      "transfer": "Tranfer",
+      "receivetrasfer": "Receive Transfer",
+      "poreceivetoday": "Receive Today",
+      "bookingtoday": "Booking Today",
+      "issuetoday": "Issue Today",
+      "transfertoday": "Trensfer Today"
+    },
+    "booking": {
+      "bookingtype": "Booking Type"
+    }
+  }
+}

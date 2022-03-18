@@ -1,0 +1,26 @@
+.text-size-mini {
+	font-size: 9px;
+	color: #0a56e2;
+}
+
+#sidebar-wrapper-right {
+	z-index: 1000;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	width: 400px;
+	max-width: 400px;
+	margin-top: -50px;
+	margin-left: -150px;
+	background: #fff;
+	padding: 30px;
+}
+.shadow {
+	-moz-box-shadow: 5px 5px 5px #ccc;
+	-webkit-box-shadow: 5px 5px 5px #ccc;
+	box-shadow: 5px 5px 5px #ccc;
+}
+.logo {
+	width: 800px;
+	height: 400px;
+}
