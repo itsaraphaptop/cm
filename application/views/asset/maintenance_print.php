@@ -1,0 +1,1 @@
+<a class="btn bg-danger" href="<?php $base_url = $this->config->item('url_report'); echo $base_url; ?>stimulsoft/Flex/stimulsoft/index.php?stimulsoft_client_key=ViewerFx&stimulsoft_report_key=maintenance.mrt&docno=<?php echo $id ?>" style="width: 150px;">Print</a>

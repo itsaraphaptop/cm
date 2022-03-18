@@ -1,0 +1,681 @@
+<style>
+tr.highlighted td {
+    background: red;
+}	
+</style>
+<!-- Main content -->
+			<div class="content-wrapper">
+
+				<!-- Page header -->
+				<div class="page-header">
+					<div class="page-header-content">
+						<div class="page-title">
+							<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Dashboard - ภาพรวมระบบ</span></h4>
+						</div>
+
+						<div class="heading-elements">
+							<div class="heading-btn-group">
+								<a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-isimary"></i><span>Statistics</span></a>
+								<a href="#" class="btn btn-link btn-float has-text"><i class="icon-calculator text-isimary"></i> <span>Invoices</span></a>
+								<a href="<?php echo base_url(); ?>index.php/manag/calenda" class="btn btn-link btn-float has-text"><i class="icon-calendar5 text-isimary"></i> <span>Schedule</span></a>
+							</div>
+						</div>
+				</div>
+
+
+				<div class="breadcrumb-line">
+						<ul class="breadcrumb">
+							<li><a href="<?php echo base_url(); ?>index.php/panel/office"><i class="icon-home2 position-left"></i> Dashboard</a></li>
+							<li><a href="<?php echo base_url(); ?>index.php/pr/archive_pr"></a></li>
+					</div>
+				</div>
+				<!-- /page header -->
+
+
+
+				<!-- Content area -->
+				<div class="content">
+
+				<div class="row">
+					<div class="col-lg-4">
+						<!-- Available hours -->
+									<div class="panel text-center border-left-lg border-left-pink">
+										<div class="panel-body">
+											<div class="heading-elements">
+												<ul class="icons-list">
+							                		<li class="dropdown text-muted">
+							                			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog3"></i> <span class="caret"></span></a>
+														<ul class="dropdown-menu dropdown-menu-right">
+															<li><a href="#"><i class="icon-sync"></i> Update data</a></li>
+															<li><a href="#"><i class="icon-list-unordered"></i> Detailed log</a></li>
+															<li><a href="#"><i class="icon-pie5"></i> Statistics</a></li>
+															<li><a href="#"><i class="icon-cross3"></i> Clear list</a></li>
+														</ul>
+							                		</li>
+							                	</ul>
+						                	</div>
+
+						                	<!-- Progress counter -->
+											<div class="content-group-sm svg-center position-relative" id="hours-available-progress"></div>
+											<!-- /progress counter -->
+
+
+											<!-- Bars -->
+											<div id="hours-available-bars"></div>
+											<!-- /bars -->
+
+										</div>
+									</div>
+									<!-- /available hours -->
+					</div>
+
+					<div class="col-lg-4">
+						<!-- Productivity goal -->
+									<div class="panel text-center border-left-lg border-left-indigo">
+										<div class="panel-body">
+											<div class="heading-elements">
+												<ul class="icons-list">
+							                		<li class="dropdown text-muted">
+							                			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog3"></i> <span class="caret"></span></a>
+														<ul class="dropdown-menu dropdown-menu-right">
+															<li><a href="#"><i class="icon-sync"></i> Update data</a></li>
+															<li><a href="#"><i class="icon-list-unordered"></i> Detailed log</a></li>
+															<li><a href="#"><i class="icon-pie5"></i> Statistics</a></li>
+															<li><a href="#"><i class="icon-cross3"></i> Clear list</a></li>
+														</ul>
+							                		</li>
+							                	</ul>
+											</div>
+
+											<!-- Progress counter -->
+											<div class="content-group-sm svg-center position-relative" id="goal-progress"></div>
+											<!-- /progress counter -->
+
+											<!-- Bars -->
+											<div id="goal-bars"></div>
+											<!-- /bars -->
+
+										</div>
+									</div>
+									<!-- /productivity goal -->
+					</div>
+
+					<div class="col-lg-4">
+						<!-- Productivity goal -->
+									<div class="panel text-center border-left-lg border-left-success">
+										<div class="panel-body">
+											<div class="heading-elements">
+												<ul class="icons-list">
+							                		<li class="dropdown text-muted">
+							                			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog3"></i> <span class="caret"></span></a>
+														<ul class="dropdown-menu dropdown-menu-right">
+															<li><a href="#"><i class="icon-sync"></i> Update data</a></li>
+															<li><a href="#"><i class="icon-list-unordered"></i> Detailed log</a></li>
+															<li><a href="#"><i class="icon-pie5"></i> Statistics</a></li>
+															<li><a href="#"><i class="icon-cross3"></i> Clear list</a></li>
+														</ul>
+							                		</li>
+							                	</ul>
+											</div>
+
+											<!-- Progress counter -->
+											<div class="content-group-sm svg-center position-relative" id="goal-approve"></div>
+											<!-- /progress counter -->
+
+											<!-- Bars -->
+											<div id="goal-bars"></div>
+											<!-- /bars -->
+
+										</div>
+									</div>
+									<!-- /productivity goal -->
+					</div>
+				</div>
+
+					<!-- Highlighting rows and columns -->
+					<div class="panel panel-flat">
+						<div class="panel-heading">
+							<h5 class="panel-title">รายชื่อพนักงานภายในองค์กร<?php echo $project; ?></h5>
+							<div class="heading-elements">
+								<ul class="icons-list">
+			                		<li><a data-action="collapse"></a></li>
+			                		<li><a data-action="reload"></a></li>
+			                		<li><a data-action="close"></a></li>
+			                	</ul>
+		                	</div>
+						</div>
+
+						<div class="panel-body">
+
+							<!-- <div class="category-content text-center">
+										<div id="reportrange" class="daterange-custom">
+											<div class="daterange-custom-display"></div>
+										</div>
+									</div> -->
+
+							<div class="row">
+								<div class="form-group form-inline">
+								<div class="col-md-6">
+									<div class="form-group">
+										<div class="col-lg-9">
+											
+								<label class="form-inline" for="startdate">ค้นหารายชื่อพนักงาน</label>
+											
+	<input type="text" class="form-control form-inline" id="startdate" name="startdate" value="">
+	<i class="form-inline icon-search4"></i>
+	<a href="#"  id="print" class="form-inline btn btn-info"><i class="icon-printer2"></i> Print</a>
+										
+										</div>
+									</div>
+								</div>
+								
+								
+									
+								
+							</div>
+							</div>
+							<br>.
+							<div class="row">
+							<div class="col-md-2 col-md-offset-10">
+								<button id=btnadd type="button" class="btn btn-info"><a  class="preload" href="<?php echo base_url(); ?>userprofile/gethr"> เพิ่มพนังาน</a></button>
+								<button id=btnadd type="button" class="btn btn-info"><a  class="preload" href="<?php echo base_url(); ?>userprofile/showemp"> เรียกดูข้อมูล</a></button>
+								<button type="button" class="btn btn-danger btn-rounded" onclick="<?php echo base_url(); ?>userprofile/gethr"><i class="icon-help position-left"></i>New Employee</button>
+								
+							</div>
+							</div>
+							<hr>
+							<div id="loadtable">
+		              <div class="dataTables_wrapper no-footer">
+		  						<div class="table-responsive">
+									<table class="table table-xs datatable" id="data">
+									<thead>
+										<tr>
+											<th  class="text-center">รหัสพนักงาน</th>
+											<th  class="text-center">ชื่อจริง</th>
+											<th  class="text-center">นามสกุล</th>
+											<th class="text-center">ตำแหน่ง</th>
+											<th class="text-center">แผนก</th>
+											<th class="text-center">โครงการ</th>
+											<th class="text-center">สถานะ</th>
+											<th class="text-center">Action</th>
+										</tr>
+									</thead>
+									<tbody>
+		                <?php foreach ($getemp as $value) {?>
+		                  	<tr id="<?php echo $value->emp_id; ?>" >
+		                    <td class="text-center"><h6><?php echo $value->emp_id; ?></h6></td>
+		                    <td class="text-center"><?php echo $value->emp_name_t; ?></td>
+							<td class="text-center"><?php echo $value->emp_lastname_t; ?></td>
+		                    <td class="text-center"><?php echo $value->emp_position; ?></td>
+		                    <td class="text-center"><?php echo $value->emp_department; ?></td>
+		                    <td class="text-center"><?php echo $value->emp_project; ?></td>
+		                    
+		                    <td class="text-center">
+		                    	<?php if ($value->emp_stat == "1") { ?>
+		                    		<span class="label label-info" >normal</span>
+
+		                    	<?php }elseif ($value->emp_stat == "2") { ?>
+		                    		<span class="label label-success">SICK</span>
+
+		                    	<?php }elseif ($value->emp_stat == "3") { ?>
+		                    		<span class="label label-default">OUT!!</span>
+
+
+		                    	<?php } ?>
+
+		                    </td>
+
+
+		           
+
+<td class="text-center">
+  <!-- Button trigger modal -->
+<button id="<?php echo $value->emp_id; ?>" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal<?php echo $value->emp_id; ?>">
+ แก้ไข
+</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal<?php echo $value->emp_id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog  modal-full" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      
+
+      <div class="modal-body">
+       <div id="accordion" role="tablist" aria-multiselectable="true">
+ 		 
+ 		 <div class="panel panel-default">
+    	 <div class="panel-heading" role="tab" id="headingOne<?php echo $value->emp_id; ?>">
+         <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne<?php echo $value->emp_id; ?>" aria-expanded="true" aria-controls="collapseOne<?php echo $value->emp_id; ?>">
+          ข้อมูลรายละเอียดส่วนตัว
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne<?php echo $value->emp_id; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne<?php echo $value->emp_id; ?>">
+      <!--Start ColapOne-->
+			<br><br>
+ <div class="row">
+ <div class="col-xs-4">
+              
+                        <label for="ccode">รหัสพนักงาน&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="ccode" name="ccode" value="<?php echo $value->emp_id; ?>">
+                        <script>
+                        	
+                        </script>
+                        &nbsp;&nbsp;<br><br>
+ </div>
+ </div>
+         <div class="row">
+         <div class="col-xs-12">
+                        <label for="emp_title_t">คำนาหน้า&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <select class="form-inline" name="emp_title_t" id="emp_title_t">
+                <?php if($emp_title == '1'){ ?><option value="1" selected>นาย</option><?php } else { ?><option value="1">นาย</option><?php }?>
+                <?php if($emp_title == '2'){ ?><option value="2" selected>นาง</option><?php } else { ?><option value="2">นาง</option><?php }?>
+                <?php if($emp_title == '3'){ ?><option value="3" selected>นางสาว</option><?php } else { ?><option value="3">นางสาว</option><?php }?>               
+                </select>
+               
+                        &nbsp;&nbsp;
+                        &nbsp;&nbsp;
+                        
+                        <label for="emp_name_t">ชื่อ&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_name_t" name="emp_name_t" value="<?php echo $value->emp_name_t; ?>">
+                        &nbsp;&nbsp;
+                        <label for="emp_lastname_t">นามสกุล&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_lastname_t" name="emp_lastname_t" value="<?php echo $value->emp_lastname_t; ?>">
+                         &nbsp;&nbsp;
+                        <label for="emp_nickname">ชื่อเล่น&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+   					    <input type="text" class="form-inline" id="emp_nickname" name="emp_nickname" value="<?php echo $value->emp_nickname; ?>">
+                        &nbsp;&nbsp;
+                          
+                          <br><br>
+                        <label for="emp_title_e">คำนำหน้าภาษาอังกฤษ&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <select class="form-inline" name="emp_title_e" id="emp_title_e">
+                <?php if($emp_title_e== '1'){ ?><option value="1" selected>Mr.</option><?php } else { ?><option value="1">Mr.</option><?php }?>
+                <?php if($emp_title_e== '2'){ ?><option value="2" selected>Ms.</option><?php } else { ?><option value="2">Ms.</option><?php }?>
+                <?php if($emp_title_e== '3'){ ?><option value="3" selected>Mrs.</option><?php } else { ?><option value="3">Mrs.</option><?php }?>               
+                </select>
+                        &nbsp;&nbsp;
+                        <label for="emp_name_e">ชื่อภาษาอังกฤษ&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_name_e" name="emp_name_e" value="<?php echo $value->emp_name_e; ?>">
+                        &nbsp;&nbsp;
+                        <label for="emp_lastname_e">นามสกุลภาษาอังกฤษ&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_lastname_e" name="emp_lastname_e" value="<?php echo $value->emp_lastname_e; ?>">
+                        &nbsp;&nbsp;
+                        <label for="emp_tele">เบอร์โทรศัพท์&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_tele" name="emp_tele" value="<?php echo $value->emp_tele; ?>">
+                        &nbsp;&nbsp;
+                        <label for="emp_email">E-mail&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_email" name="emp_email" value="<?php echo $value->emp_email; ?>">
+                        &nbsp;&nbsp;<br><br>
+    </div>
+    </div>
+     <div class="row">
+     <div class="col-xs-12">
+                        <label for="emp_birthdate">วัน/เดือน/ปี ที่ เกิด</label>&nbsp;&nbsp;
+                        <span class="form-inline"><i class="icon-calendar22"></i></span>
+                        <input type="text" class="form-inline pickadate-accessibility" id="emp_birthdate" name="emp_birthdate"> 
+                        <script>
+                           		// Accessibility labels
+                        	 $('.pickadate-accessibility').pickadate({
+                             labelMonthNext: 'Go to the next month',
+                             labelMonthPrev: 'Go to the previous month',
+                             labelMonthSelect: 'Pick a month from the dropdown',
+                             labelYearSelect: 'Pick a year from the dropdown',
+                             selectMonths: true,
+                             selectYears: true
+                        	 });
+                    	     </script>        
+                        &nbsp;&nbsp;
+                        <label for="emp_h">ส่วนสูง&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_h" name="emp_h" value="<?php echo $value->emp_h; ?>">
+                        &nbsp;&nbsp;
+                        <label for="emp_w">น้ำหนัก&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_w" name="emp_w" value="<?php echo $value->emp_w; ?>">
+                        &nbsp;&nbsp;
+                        <label for="emp_status">สถานะ</label>
+              			<select class="form-inline" name="emp_status" id="emp_status">
+               		    <?php if($emp_status == '1'){ ?><option value="1" selected>สมรม</option><?php } else { ?><option value="1">สมรส</option><?php }?>
+                		<?php if($emp_status== '2'){ ?><option value="2" selected>โสด</option><?php } else { ?><option value="2">โสด</option><?php }?>
+                		<?php if($emp_status == '3'){ ?><option value="3" selected>หย่า/ร้าง</option><?php } else { ?><option value="3">หย่า/ร้าง</option><?php }?>               
+                		</select>
+                		&nbsp;&nbsp;
+                		<label for="emp_child">จำนวนบุตร&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_child" name="emp_child" value="<?php echo $value->emp_child; ?>">
+                        &nbsp;&nbsp;<br><br>
+                        <label for="emp_race">เชื้อเชาติ&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_race" name="emp_race" value="<?php echo $value->emp_child; ?>">
+                        &nbsp;&nbsp;
+                        <label for="emp_nation">สัญชาติ&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_nation" name="emp_nation" value="<?php echo $value->emp_nation; ?>">
+                        &nbsp;&nbsp;
+                        <label for="emp_religion">ศาสนา&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_religion" name="emp_religion" value="<?php echo $value->emp_religion; ?>">
+                        &nbsp;&nbsp;
+                        <label for="emp_brosis">จำนวนพี่น้อง&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_brosis" name="emp_brosis" value="<?php echo $value->emp_brosis; ?>">
+                        &nbsp;&nbsp;
+                        <label for="emp_cno">เป็นบุตรคนที่&nbsp;&nbsp;:</label>&nbsp;&nbsp;
+                        <input type="text" class="form-inline" id="emp_cno" name="emp_cno" value="<?php echo $value->emp_cno; ?>">
+          </div>
+          </div>
+                </div>
+                       
+
+
+
+
+            </div>
+         
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo<?php echo $value->emp_id; ?>">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo<?php echo $value->emp_id; ?>" aria-expanded="false" aria-controls="collapseTwo<?php echo $value->emp_id; ?>">
+          ที่อยู่และผู้ติดต่อ
+        </a>
+      </h4>
+    </div>
+   
+
+    <div id="collapseTwo<?php echo $value->emp_id; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo<?php echo $value->emp_id; ?>">
+      <div class="row">
+      <div class="col-xs-6">
+      <label for="emp_address_now">ที่อยู่ปัจจุบัน</label>
+<textarea class="form-control" type="text" rows="3" id="emp_address_now" name="emp_address_now"><?php echo $value->emp_address_now; ?></textarea>
+      </div>
+      <div class="col-xs-6">
+      <label for="emp_address_book">ที่อยู่ตามทะเบียนบ้าน</label>
+      <textarea class="form-control" rows="3" id="emp_address_book" name="emp_address_book"><?php echo $value->emp_address_book; ?></textarea>
+      </div>
+      </div>
+      <div class="row">
+      <h3>บุคคลที่สามารถติดต่อได้(กรณีฉุกเฉิน)</h3>
+      <div class="col-xs-4">
+      <label>ชื่อ  -  สกุล</label>
+      <input type="text" class="form-control input-sm" placeholder="กรอกชื่อและสกุล" id="emp_cflname" name="emp_cflname" value="<?php echo $value->emp_cflname; ?>">
+      </div>
+      <div class="col-xs-2">
+      <label>อาชีพ</label>
+      <input type="text" class="form-control input-sm" placeholder="กรอกอาชีพ" id="emp_cjob" name="emp_cjob" value="<?php echo $value->emp_cjob; ?>">
+      </div>
+      <div class="col-xs-2">
+      <label>เกี่ยวของเป็น</label>
+      <input type="text" class="form-control input-sm" placeholder="ระบุความสัมพันธ์" id="emp_crela" name="emp_crela" value="<?php echo $value->emp_crela; ?>" >
+      </div>
+      <div class="col-xs-4">
+      <label>สถานที่ทำงาน</label>
+      <input type="text" class="form-control input-sm" placeholder="กรอกสถานที่" id="emp_cplace" name="emp_cplace" value="<?php echo $value->emp_cplace; ?>" >
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-xs-3">
+      <label>เบอร์โทรศัพท์</label>
+      <input type="text" class="form-control input-sm" placeholder="เบอร์โทรศัพท์" id="emp_ctele" name="emp_ctele" value="<?php echo $value->emp_ctele; ?>" >               
+      </div>
+      </div>
+
+
+    </div>
+  </div> <!--END ColapsTWO-->
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree<?php echo $value->emp_id; ?>" aria-expanded="false" aria-controls="collapseThree<?php echo $value->emp_id; ?>">
+          ประวัติการศึกษาและประวัติการทำงาน
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree<?php echo $value->emp_id; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+        <table class="table table-bordered" id="table<?php echo $value->emp_id; ?>" >
+  				<tr >
+                        <th class="text-center">
+                          #
+                        </th>
+                        <th class="text-center">
+                         ระดับการศึกษา
+                        </th>
+                         <th class="text-center">
+                          ชื่อสถานศึกษา
+                        </th>
+                        <th class="text-center">
+                         สาขา
+                        </th>
+                        <th class="text-center"> 
+                         ตั้งแต่ปี
+                        </th>
+                 </tr>
+                 <td></td>
+                 <td class="text-center"><input type="text" value"<?php echo $value->emp_id; ?></td>
+		</table>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+       <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour<?php echo $value->emp_id; ?>" aria-expanded="false" aria-controls="collapseFour<?php echo $value->emp_id; ?>">
+         ทักษะและความสามารถ
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour<?php echo $value->emp_id; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFoure">
+         <div class="form-inline">
+        <table class ="table">
+        <tbody>
+        <tr> </tr>
+        <td>ความสามารถทางภาษา</td>
+        <td> <label class="form-inline" for="e_lang">ภาษา</label>&nbsp;&nbsp; 
+       <select  class="form-inline form-control input-sm" id="skill_lang" name="skill_lang" \ onchange="change(this)">
+                         <?php $this->db->select('*');
+                         $this->db->order_by('emp_id','asc');
+                                $q = $this->db->get('emp_dd');
+                                $res = $q->result();
+                                foreach ($res as  $va) {
+                          ?>
+                         <option value="<?php echo $va->emp_id; ?>"><?php echo $va->dd_lang; ?></option><?php } ?>
+      </select>
+                     
+           <script>
+// //                     $("$skill_lang")load(this);(function()){
+// //                       if($(this).val()=="0"){
+// //                       $("#skill_speak").hidden();
+// // }
+// //                     }
+//                     $("#skill_lang").change(function(){
+//                     if($(this).val()=="2")
+//                         {     
+//                         $("#lbe_toeic").show();
+//                         $("#txttoeic").show();
+//                         }
+//                     else
+//                         {
+//                         $("#txttoeic").hide();
+//                         $("#lbe_toeic").hide();
+//                         }
+// });
+//             </script>
+
+
+                      &nbsp;&nbsp;<label class="form-inline"  for="skill_speak">พูด</label>&nbsp;&nbsp;
+                      <select class="form-inline form-control input-sm" id="skill_speak" name="skill_speak">
+                         <?php $this->db->select('*');
+                         $this->db->order_by('emp_id','asc');
+                                $q = $this->db->get('emp_dd');
+                                $res = $q->result();
+                                foreach ($res as  $va) {
+                          ?>
+                         <option value="<?php echo $va->emp_id; ?>"><?php echo $va->dd_grade; ?></option>
+                         <?php } ?>
+                      </select>
+
+                       &nbsp;&nbsp;<label class="form-inline" for="skill_read">อ่าน</label>&nbsp;&nbsp;
+                       <select  class="form-inline form-control input-sm" id="skill_read" name="skill_read">
+                         <?php $this->db->select('*');
+                         $this->db->order_by('emp_id','asc');
+                                $q = $this->db->get('emp_dd');
+                                $res = $q->result();
+                                foreach ($res as  $va) {
+                          ?>
+                         <option value="<?php echo $va->emp_id; ?>"><?php echo $va->dd_grade; ?></option>
+                         <?php } ?>
+                      </select>
+                       &nbsp;&nbsp;<label class="form-inline" for="skill_read">เขียน</label>&nbsp;&nbsp;
+                       <select  class="form-inline form-control input-sm" id="skill_write" name="skill_write">
+                         <?php $this->db->select('*');
+                         $this->db->order_by('emp_id','asc');
+                                $q = $this->db->get('emp_dd');
+                                $res = $q->result();
+                                foreach ($res as  $va) {
+                          ?>
+                         <option value="<?php echo $va->emp_id; ?>"><?php echo $va->dd_grade; ?></option>
+                         <?php } ?>
+                      </select>
+               </td>
+              <tr></tr>
+              <td></td>
+            <td>
+            <label id="lbe_toeic" class="form-inline" for="e_toeic">TOEIC</label>&nbsp;&nbsp;
+             <input class="form-inline form-control" id="e_toeic" name="e_toeic">&nbsp;&nbsp;
+            &nbsp;&nbsp;<label id="lbe_toelf" class="form-inline" for="e_toelf">TOEFL</label>&nbsp;&nbsp;
+             <input class="form-inline form-control" id="e_toelf" name="e_toelf">&nbsp;&nbsp; 
+            </td>
+                        <tr></tr>
+                        <td></td>
+                        <td>
+                        <label id="lbe_elts" class="form-inline" for="e_ielts">IELTS</label>&nbsp;&nbsp;
+                        <input class="form-inline form-control" id="e_ielts" name="e_ielts">&nbsp;&nbsp;
+                        <label id="lbe_cutep" class="form-inline" for="e_cuget">CU-TEP</label>&nbsp;&nbsp;
+                        <input class="form-inline form-control" id="e_cutep" name="e_cutep">                      
+                        <br><br>
+                        <label id="lbe_tuget" class="form-inline" for="e_tutep">TU-GET</label>&nbsp;&nbsp;
+                        <input class="form-inline form-control" id="e_tuget" name="e_tuget">
+                        </td>   
+                        </tbody>    
+                        </table>
+                        </div> 
+       
+        <table class="table">
+        <tr>
+        </tr>
+        <tbody>
+        <tr>
+    
+        </tr>
+        <td>
+        <label>ความสามารถในการขับขี่พาหนะ</label>
+        </td>
+        <td>
+         <label class="checkbox-inline"><input type="checkbox" value="">รถยนต์</label>
+         <label class="checkbox-inline"><input type="checkbox" value="">รถจักยานยนต์</label>
+         <label class="checkbox-inline"><input type="checkbox" value="">รถบรรทุก</label>
+         <label class="checkbox-inline"><input type="checkbox" value="">รถกระบะ</label>
+         <label class="checkbox-inline"><input type="checkbox" value="">รถฟอร์คลิฟท์</label>
+        </td>
+        <tr></tr><td>มีพาหนะเป็นของตัวเอง</td>
+        <td>
+        <label class="checkbox-inline"><input type="checkbox" value="">รถยนต์</label>
+        <label class="checkbox-inline"><input type="checkbox" value="">รถจักยานยนต์</label>
+        <label class="checkbox-inline"><input type="checkbox" value="">รถบรรทุก</label>
+        </td>
+        <tr></tr><td>ความสามารถพิเศษอื่นๆ</td>
+        <td>
+        <input class="form-control" id="skill1" name="skill1">
+        <input class="form-control" id="skill2" name="skill2">
+        <input class="form-control" id="skill3" name="skill3">
+        <input class="form-control" id="skill4" name="skill4">
+        <input class="form-control" id="skill5" name="skill5">
+        </td>
+        <tr></tr><td><label>สามารถปฎิบัติงานต่างจังหวัด</label></td>
+                <td><label class="radio-inline"><input type="radio" name="rdbgo">ไปได้</label>
+          <label class="radio-inline"><input type="radio" name="rdbgo">ไปไม่ได้</label></td>
+        <tr></tr><td><label>สามารถปฎิบัติงานต่างประเทศ</label></td>
+                  <td> <label class="radio-inline"><input type="radio" name="rdbgonation">ไปได้</label>
+                       <label class="radio-inline"><input type="radio" name="rdbgonation">ไปไม่ได้</label>
+                 </td>
+        <tr></tr><td><label>ประวัติการถูกดำเนินคดั</label></td>
+        <td><label class="radio-inline"><input type="radio" name="rdblaw">เคย</label>
+          <label class="radio-inline"><input type="radio" name="rdblaw">ไม่เคย</label>
+          </td>
+            <tr></tr><td> <label>ประวัติการดื่มสุรา</label>  </td>
+            <td><label class="radio-inline"><input type="radio" name="rdbdrink">เคย</label>
+          <label class="radio-inline"><input type="radio" name="rdbdrink">ไม่เคย</label></td>
+          <tr></tr><td><label>ประวัติสูบบุหรี่</label> </td>
+          <td><label class="radio-inline"><input type="radio" name="rdbsmoke">สูบ</label>
+          <label class="radio-inline"><input type="radio" name="rdbsmoke">ไม่สูบ</label></td>
+
+        </tbody>
+        </table>   
+    </div>
+  </div>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFive">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive<?php echo $value->emp_id; ?>" aria-expanded="false" aria-controls="collapseFive<?php echo $value->emp_id; ?>">
+          ข้อมูลภายในองค์กร
+        </a>
+      </h4>
+    </div>
+   <div id="collapseFive<?php echo $value->emp_id; ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+      ข้อมูลภายในองค์กนเนื้อหา
+    </div>
+  </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+        <button type="button" class="btn btn-primary">บันทึกการแก้ไข</button>
+      </div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+  </td>    
+             </tr>
+		                <?php } ?>
+
+		                
+									</tbody>
+								</table>
+								</div>
+								</div>
+
+       
+					<!-- /highlighting rows and columns -->
+
+
+
+					 <!-- Footer -->
+			         
+			      </div>
+			      </div>
+			          <!-- /footer -->
+
+				</div>
+				<!-- /content area -->
+
+			</div>
+			
+			<script>
+				$('.datatable').DataTable();
+			</script>
+			<script>
+				$("#find").click(function(){
+					var	startdate =  $("#startdate").val();
+					var	enddate =  $("#enddate").val();
+					var	material =  $("#material").val();
+					// var startdate = $("input[name='daterangepicker_start']").val();
+					// var enddate = $("input[name='daterangepicker_end']").val();
+					$("#loadtable").load('<?php echo base_url(); ?>index.php/inventory/service_table_stockcard/'+startdate+'/'+enddate+'/'+material);
+				});
+
+				
+			</script>
+

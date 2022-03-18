@@ -1,0 +1,12 @@
+diff a/application/views/office/purchase/main/create_po_v.php b/application/views/office/purchase/main/create_po_v.php	(rejected hunks)
+@@ -511,8 +511,9 @@
+ 						</div>
+ 						<script>
+ 						$(".openun").click(function(){
++							var row = ($('#body tr').length-0)+1;
+ 							 $('#modal_mat').html("<img src='<?php echo base_url();?>assets/images/loading.gif'> Loading...");
+-							 $("#modal_mat").load('<?php echo base_url(); ?>index.php/share/material');
++							 $("#modal_mat").load('<?php echo base_url(); ?>share/getmatcode/'+row);
+ 						 });
+ 						</script>
+ 					 <!-- modal เลือกหน่วย -->
